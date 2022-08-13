@@ -57,9 +57,12 @@ RUN rm /tmp/nRF5_SDK_15.3.0_59ac345
 # RUN bash -c "source /opt/build.sh; GetMcuBoot;"
 RUN git clone https://github.com/mcu-tools/mcuboot.git
 RUN pip3 install -r ./mcuboot/scripts/requirements.txt
-
+RUN echo 'root:Docker!' | chpasswd
 RUN adduser infinitime
 
 ENV NRF5_SDK_PATH /opt/nRF5_SDK_15.3.0_59ac345
 ENV ARM_NONE_EABI_TOOLCHAIN_PATH /opt/gcc-arm-none-eabi-9-2020-q2-update
 ENV SOURCES_DIR /workspaces/InfiniTime
+
+
+
